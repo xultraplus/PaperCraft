@@ -65,46 +65,265 @@ export const DEFAULT_CONFIG: PaperConfig = {
 };
 
 export const TEMPLATES: PaperConfig[] = [
-  // Basic
+  // --- Standard & Academic ---
   {
     ...DEFAULT_CONFIG,
     id: 'lined-basic',
-    name: 'College Ruled',
+    name: 'Standard Notebook',
     pattern: 'lined',
-    spacing: 7.1,
-    size: 'Letter',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'vertical-lined',
-    name: 'Vertical Lined',
-    pattern: 'vertical_lined',
-    spacing: 10,
+    spacing: 8,
+    strokeColor: '#808080',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 20, right: 20 }
   },
   {
     ...DEFAULT_CONFIG,
     id: 'cornell',
     name: 'Cornell Notes',
     pattern: 'cornell',
-    spacing: 7.1,
-    strokeColor: '#cbd5e1',
+    spacing: 7,
+    strokeColor: '#808080',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 20, right: 20 }
   },
   {
     ...DEFAULT_CONFIG,
-    id: 'grid-5mm',
-    name: '5mm Graph Paper',
+    id: 'grid-math',
+    name: 'Math Grid',
     pattern: 'grid',
     spacing: 5,
-    strokeColor: '#cbd5e1',
+    strokeColor: '#a0a0a0',
+    strokeWidth: 0.3,
+    margins: { top: 20, bottom: 20, left: 20, right: 20 }
   },
   {
     ...DEFAULT_CONFIG,
-    id: 'dot-grid-5mm',
-    name: '5mm Dot Grid',
+    id: 'dot-paper',
+    name: 'Dot Paper',
     pattern: 'dot',
     spacing: 5,
-    strokeColor: '#64748b',
-    strokeWidth: 2,
+    strokeColor: '#a0a0a0',
+    strokeWidth: 0.3,
+    margins: { top: 20, bottom: 20, left: 20, right: 20 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'english-paper',
+    name: 'English Practice',
+    pattern: 'english_paper',
+    spacing: 5, // Gap spacing
+    strokeColor: '#ff6b6b',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
+  },
+  
+  // --- Specialized ---
+  {
+    ...DEFAULT_CONFIG,
+    id: 'arithmetic',
+    name: 'Arithmetic',
+    pattern: 'arithmetic_paper',
+    spacing: 5,
+    strokeColor: '#ff6b6b',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'composition',
+    name: 'Composition',
+    pattern: 'composition_paper',
+    spacing: 8,
+    strokeColor: '#ff6b6b',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'music-staff',
+    name: 'Music Staff',
+    pattern: 'music',
+    spacing: 7, // Staff line distance or gap? Using config as base.
+    strokeColor: '#505050',
+    strokeWidth: 0.5,
+    theme: 'classic',
+    margins: { top: 25, bottom: 25, left: 20, right: 20 }
+  },
+   {
+    ...DEFAULT_CONFIG,
+    id: 'guitar-tab',
+    name: 'Guitar Tab',
+    pattern: 'guitar_tab',
+    spacing: 25,
+    strokeColor: '#333333',
+    strokeWidth: 0.6,
+    margins: { top: 15, bottom: 15, left: 15, right: 15 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'seyes',
+    name: 'Seyes (French)',
+    pattern: 'seyes',
+    spacing: 8, // 2mm gap x 4
+    strokeColor: '#9c9c9c',
+    strokeWidth: 0.3,
+    theme: 'classic',
+  },
+
+  // --- Chinese Calligraphy & Practice ---
+  {
+    ...DEFAULT_CONFIG,
+    id: 'tianzi',
+    name: 'Tianzi',
+    pattern: 'tianzi',
+    spacing: 20,
+    strokeColor: '#8B4513',
+    strokeWidth: 0.6,
+    theme: 'vintage',
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: '#FFF8E6',
+       patternColor: '#E7BC91',
+       patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'mizige',
+    name: 'Mizige',
+    pattern: 'mizige',
+    spacing: 20,
+    strokeColor: '#8B4513',
+    strokeWidth: 0.6,
+    theme: 'vintage',
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: '#FFF8E6',
+       patternColor: '#E7BC91',
+       patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'jiugongge',
+    name: 'Jiugongge',
+    pattern: 'jiugongge',
+    spacing: 10,
+    strokeColor: '#8B4513',
+    strokeWidth: 0.6,
+    theme: 'vintage',
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: '#FFF8E6',
+       patternColor: '#E7BC91',
+       patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'huigongge',
+    name: 'Huigongge',
+    pattern: 'huigongge',
+    spacing: 25,
+    strokeColor: '#8B4513',
+    strokeWidth: 0.6,
+    theme: 'vintage',
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: '#FFF8E6',
+       patternColor: '#E7BC91',
+       patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'hardpen-huigongge',
+    name: 'Hardpen Huigongge',
+    pattern: 'hardpen_huigongge',
+    spacing: 25,
+    strokeColor: '#ff0000',
+    strokeWidth: 0.4,
+    theme: 'vintage',
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: '#FFF8E6',
+       patternColor: '#E7BC91',
+       patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'calligraphy',
+    name: 'Calligraphy Paper',
+    pattern: 'mizige', // Using Mizige structure for calligraphy
+    spacing: 10,
+    strokeColor: '#c0c0c0',
+    strokeWidth: 0.4,
+    lineStyle: 'dashed',
+    theme: 'vintage',
+    background: {
+      ...DEFAULT_CONFIG.background,
+      color: '#fff8e1',
+    },
+    margins: { top: 10, bottom: 9, left: 9, right: 9 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'pinyin-paper',
+    name: 'Chinese Pinyin',
+    pattern: 'pinyin',
+    spacing: 20,
+    strokeColor: '#ff6b6b', 
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'pinyin-tianzi',
+    name: 'Pinyin Tianzi',
+    pattern: 'pinyin_tianzi',
+    spacing: 20,
+    strokeColor: '#ff6b6b',
+    strokeWidth: 0.5,
+    margins: { top: 15, bottom: 15, left: 15, right: 15 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'chinese-preview-card',
+    name: 'Chinese Preview Card',
+    pattern: 'tianzi',
+    spacing: 20,
+    strokeColor: '#6b7280',
+    strokeWidth: 0.5,
+    margins: { top: 15, bottom: 15, left: 15, right: 15 }
+  },
+
+  // --- Creative & Design ---
+  {
+    ...DEFAULT_CONFIG,
+    id: 'children_drawing',
+    name: 'Children Drawing Paper',
+    pattern: 'children_drawing',
+    spacing: 10,
+    strokeColor: '#808080',
+    strokeWidth: 0.5,
+    theme: 'creative',
+    margins: { top: 20, bottom: 20, left: 20, right: 20 }
+  },
+  {
+    ...DEFAULT_CONFIG,
+    id: 'storyboard',
+    name: 'Storyboard',
+    pattern: 'storyboard',
+    spacing: 50, // Height of the box row approx
+    strokeColor: '#808080',
+    strokeWidth: 0.5,
+    margins: { top: 20, bottom: 20, left: 20, right: 20 }
   },
   {
     ...DEFAULT_CONFIG,
@@ -112,14 +331,17 @@ export const TEMPLATES: PaperConfig[] = [
     name: 'Isometric Dot',
     pattern: 'isometric',
     spacing: 10,
+    strokeColor: '#a0a0a0',
+    strokeWidth: 0.3,
   },
   {
     ...DEFAULT_CONFIG,
     id: 'hexagonal',
     name: 'Hexagonal',
     pattern: 'hexagonal',
-    spacing: 10,
-    strokeColor: '#e2e8f0',
+    spacing: 15,
+    strokeColor: '#a0a0a0',
+    strokeWidth: 0.3,
   },
   {
     ...DEFAULT_CONFIG,
@@ -127,116 +349,50 @@ export const TEMPLATES: PaperConfig[] = [
     name: 'Cross Grid',
     pattern: 'cross',
     spacing: 10,
-    strokeWidth: 1,
-  },
-  
-  // Specialized
-  {
-    ...DEFAULT_CONFIG,
-    id: 'seyes',
-    name: 'Seyes (French)',
-    pattern: 'seyes',
-    spacing: 8, // Major line spacing
-    strokeColor: '#e2e8f0',
+    strokeColor: '#808080',
+    strokeWidth: 0.4,
+    background: {
+        ...DEFAULT_CONFIG.background,
+        patternOpacity: 0.1
+    },
+    margins: { top: 9, bottom: 9, left: 9, right: 9 }
   },
   {
     ...DEFAULT_CONFIG,
-    id: 'music-staff',
-    name: 'Music Staff',
-    pattern: 'music',
-    spacing: 20, // Distance between staves
-    strokeColor: '#000000',
-  },
-   {
-    ...DEFAULT_CONFIG,
-    id: 'guitar-tab',
-    name: 'Guitar Tab',
-    pattern: 'guitar_tab',
-    spacing: 20, // Distance between tabs
-    strokeColor: '#000000',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'english-paper',
-    name: 'English Practice',
-    pattern: 'english_paper',
-    spacing: 12,
-    strokeColor: '#000000',
-  },
-
-  // Chinese Practice
-  {
-    ...DEFAULT_CONFIG,
-    id: 'pinyin-practice',
-    name: 'Chinese Pinyin',
-    pattern: 'pinyin',
-    spacing: 16,
-    strokeColor: '#ef4444', 
+    id: 'vertical-lined',
+    name: 'Vertical Lined',
+    pattern: 'vertical_lined',
+    spacing: 8,
+    strokeColor: '#6b7280',
     strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
   },
   {
     ...DEFAULT_CONFIG,
-    id: 'tianzi',
-    name: 'Tianzi',
-    pattern: 'tianzi',
-    spacing: 16, // Box size
-    strokeColor: '#ef4444',
+    id: 'minimal_journal',
+    name: 'Minimal Journal',
+    pattern: 'lined',
+    spacing: 8,
+    theme: 'minimalist',
+    strokeColor: '#909090',
+    strokeWidth: 0.4,
+    background: {
+       ...DEFAULT_CONFIG.background,
+       color: THEME_PRESETS.minimalist.bgColor,
+       patternOpacity: 0.1
+    },
+    margins: { top: 30, bottom: 30, left: 25, right: 25 }
   },
   {
     ...DEFAULT_CONFIG,
-    id: 'pinyin-tianzi',
-    name: 'Pinyin Tianzi',
-    pattern: 'pinyin_tianzi',
-    spacing: 24, // Combined height approx
-    strokeColor: '#ef4444',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'mizige',
-    name: 'Mizige',
-    pattern: 'mizige',
-    spacing: 16,
-    strokeColor: '#ef4444',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'huigongge',
-    name: 'Huigongge',
-    pattern: 'huigongge',
-    spacing: 16,
-    strokeColor: '#ef4444',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'jiugongge',
-    name: 'Jiugongge',
-    pattern: 'jiugongge',
-    spacing: 18,
-    strokeColor: '#ef4444',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'composition',
-    name: 'Composition',
-    pattern: 'composition_paper',
-    spacing: 12,
-    strokeColor: '#ef4444',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'arithmetic',
-    name: 'Arithmetic',
-    pattern: 'arithmetic_paper',
-    spacing: 10,
-    strokeColor: '#000000',
-  },
-  {
-    ...DEFAULT_CONFIG,
-    id: 'hardpen-huigongge',
-    name: 'Hardpen Huigongge',
-    pattern: 'hardpen_huigongge',
-    spacing: 16,
-    strokeColor: '#ef4444',
+    id: 'practice_paper',
+    name: 'Practice Paper',
+    pattern: 'lined',
+    spacing: 8,
+    lineStyle: 'dashed',
+    strokeColor: '#6b7280',
+    strokeWidth: 0.5,
+    margins: { top: 25, bottom: 25, left: 25, right: 25 }
   },
 ];
 

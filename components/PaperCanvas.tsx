@@ -81,6 +81,7 @@ const PaperCanvas: React.FC<PaperCanvasProps> = ({ config, pageNumber = 1 }) => 
     switch (config.pattern) {
       case 'lined':
       case 'cornell': // Cornell uses lined pattern for main body usually
+      case 'children_drawing': // Reuse simple lines for the lined part
         return (
           <pattern id={patternId} x="0" y="0" width="100%" height={`${s}mm`} patternUnits="userSpaceOnUse">
              <line x1="0" y1={`${s}mm`} x2="100%" y2={`${s}mm`} stroke={color} strokeWidth={strokeWidth} strokeOpacity={opacity} strokeDasharray={dashArray} />
@@ -324,8 +325,35 @@ const PaperCanvas: React.FC<PaperCanvasProps> = ({ config, pageNumber = 1 }) => 
            </>
         )}
 
-        {/* Main Pattern Fill Area */}
-        {config.pattern !== 'blank' && (
+        {/* Children Drawing Layout - Top half blank, bottom half lined */}
+        {config.pattern === 'children_drawing' && (
+            <>
+               {/* Drawing Box Frame */}
+               <rect 
+                 x={`${startX}mm`} 
+                 y={`${startY}mm`} 
+                 width={`${contentWidth}mm`} 
+                 height={`${contentHeight * 0.5 - 5}mm`} 
+                 fill="none" 
+                 stroke={config.strokeColor} 
+                 strokeWidth={2} 
+                 strokeOpacity={config.opacity}
+               />
+               
+               {/* Lined Area */}
+                <rect 
+                x={`${startX}mm`} 
+                y={`${startY + contentHeight * 0.5}mm`} 
+                width={`${contentWidth}mm`} 
+                height={`${contentHeight * 0.5}mm`} 
+                fill={`url(#${patternId})`} 
+              />
+            </>
+         )}
+
+
+        {/* Main Pattern Fill Area (Generic) */}
+        {config.pattern !== 'blank' && config.pattern !== 'children_drawing' && (
            <rect 
            x={`${startX}mm`} 
            y={`${startY}mm`} 

@@ -5,7 +5,8 @@ export type PatternType =
   | 'isometric' | 'hexagonal' | 'cross' | 'cornell' | 'seyes'
   | 'music' | 'guitar_tab' | 'storyboard'
   | 'pinyin' | 'pinyin_tianzi' | 'composition_paper' | 'arithmetic_paper' 
-  | 'english_paper' | 'mizige' | 'huigongge' | 'jiugongge' | 'tianzi' | 'hardpen_huigongge';
+  | 'english_paper' | 'mizige' | 'huigongge' | 'jiugongge' | 'tianzi' | 'hardpen_huigongge'
+  | 'children_drawing';
 
 export type BackgroundPatternType = 'none' | 'grid' | 'dots' | 'lines';
 export type LineStyle = 'solid' | 'dashed' | 'dotted';
