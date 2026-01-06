@@ -241,13 +241,15 @@ function App() {
         </div>
 
         {/* Preview Area */}
-        <main className="flex-1 overflow-auto bg-gray-100/50 p-8 flex flex-col items-center justify-start gap-8">
-           {/* Render pages based on page count */}
-           {Array.from({ length: config.pages?.count || 1 }).map((_, index) => (
-               <div key={index} className="">
-                 <PaperCanvas config={config} pageNumber={index + 1} />
-               </div>
-           ))}
+        <main className="flex-1 overflow-auto bg-gray-100/50 p-8">
+           <div className="min-w-fit mx-auto flex flex-col items-center gap-8">
+               {/* Render pages based on page count */}
+               {Array.from({ length: config.pages?.count || 1 }).map((_, index) => (
+                   <div key={index} className="transition-transform duration-200 ease-in-out">
+                     <PaperCanvas config={config} pageNumber={index + 1} />
+                   </div>
+               ))}
+           </div>
         </main>
 
       </div>
